@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  dind:
+    image: docker:27.1.2-dind
+    container_name: dind
+    privileged: true
+    ports:
+      - "2375:2375" # Expose Docker daemon on TCP port 2375
+    environment:
+      - DOCKER_TLS_CERTDIR=
+      - AWS_ACCESS_KEY_ID=myrootaccesskeyid
+      - AWS_SECRET_ACCESS_KEY=myrootsecretaccesskey
+      - AWS_DEFAULT_REGION=eu-west-3
+    volumes:
+      - dind-data:/var/lib/docker
+      - ./:/mnt/
+
+volumes:
+  dind-data:

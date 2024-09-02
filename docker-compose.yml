@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+
+  tfrunner:
+    build:
+      context: ./tfrunner/
+      dockerfile: ./Dockerfile
+    container_name: tfrunner-cnt
+    tty: true
+    volumes:
+      - type: bind
+        source: ./terraform
+        target: /mnt/terraform
+
+  localstack:
+    image: localstack/localstack:3.7.1
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+      - "127.0.0.1:4571:4571"
+    environment:
+      - SERVICES=s3,iam,apigateway,lambda,ec2
+      - LAMBDA_EXECUTOR=docker-reuse
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN}
+      - DEBUG=1
+      - AWS_ACCESS_KEY_ID=myrootaccesskeyid
+      - AWS_SECRET_ACCESS_KEY=myrootsecretaccesskey
+      - AWS_DEFAULT_REGION=eu-west-3
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    user: "root"
+    privileged: true
