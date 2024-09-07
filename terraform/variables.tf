@@ -2,6 +2,10 @@ variable "env" {
   type = string
 }
 
+variable "availability_zone" {
+  type = string
+}
+
 # CIDR block for the VPC
 variable "cidr_block" {
   description = "The CIDR block for the VPC."

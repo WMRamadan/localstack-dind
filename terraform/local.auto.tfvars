@@ -1,6 +1,8 @@
 env = "local"
 
-cidr_block = "10.90.8.0/21"
+availability_zone = "eu-west-3b"
+
+cidr_block = "10.90.8.0/21" # 10.90.8.0 to 10.90.15.255
 
 public_subnets = [
   "10.90.8.64/26",
