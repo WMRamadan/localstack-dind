@@ -54,7 +54,7 @@ Apply the plan
 
 You should see a URL to test the Api Gateway endpoint similar to the following
 
-    curl http://localstack:4566/restapis/h6c6m6tsyb/test/_user_request_/ -vv
+    curl http://localstack:4566/restapis/<id>/test/_user_request_/ -vv
 
 And the API will reply `Cheers from AWS Lambda!!`.
 
@@ -127,7 +127,7 @@ Apply the plan
 
 You should see a URL to test the Api Gateway endpoint similar to the following
 
-    curl http://localstack:4566/restapis/h6c6m6tsyb/test/_user_request_/ -vv
+    curl http://localstack:4566/restapis/<id>/test/_user_request_/ -vv
 
 And the API will reply `Cheers from AWS Lambda!!`.
 
