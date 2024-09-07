@@ -2,14 +2,14 @@ version: "3.8"
 
 services:
 
-  tfrunner:
+  tfrunner:  # Holds terraform code
     build:
-      context: ./tfrunner/
+      context: ./tfrunner/  # Build init
       dockerfile: ./Dockerfile
     container_name: tfrunner-cnt
-    tty: true
+    tty: true  # For running interacative programs & processes within the container
     volumes:
-      - type: bind
+      - type: bind  # Connect directory from host to container
         source: ./terraform
         target: /mnt/terraform
 
@@ -20,8 +20,8 @@ services:
       - "127.0.0.1:4510-4559:4510-4559"  # external services port range
       - "127.0.0.1:4571:4571"
     environment:
-      - SERVICES=s3,iam,apigateway,lambda,ec2
-      - LAMBDA_EXECUTOR=docker-reuse
+      - SERVICES=s3,iam,apigateway,lambda,ec2 # Services to emulate
+      - LAMBDA_EXECUTOR=docker-reuse # Uses same container for multiple lambda invocations
       - DOCKER_HOST=unix:///var/run/docker.sock
       - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN}
       - DEBUG=1
