@@ -6,8 +6,12 @@ output "s3_file_url" {
   value = "curl http://localstack:4566/${aws_s3_bucket.file_bucket.bucket}/${aws_s3_object.data_file.key} -vv"
 }
 
-output "instance_id" {
-  value = aws_instance.example.id
+output "public_instance_id" {
+  value = aws_instance.public_instance.id
+}
+
+output "private_instance_id" {
+  value = aws_instance.private_instance.id
 }
 
 output "vpc_id" {
