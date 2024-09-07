@@ -55,7 +55,7 @@ resource "aws_api_gateway_deployment" "webserver-deployment" {
     aws_api_gateway_integration.webserver-integration,
     aws_api_gateway_integration.lambda_root
   ]
-  stage_name = "api"
+  stage_name = "test"
 }
 
 # Grants API Gateway permission to invoke the Lambda function
