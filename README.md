@@ -6,7 +6,7 @@ The repository covers the following:
 
 2) An HTTP endpoint that serves a file from an S3 bucket. 
 
-3) VPC `private_subnets`.
+3) Two EC2 instances, one with public subnet and one with private subnet based on the same VPC.
 
 4) Localstack dependent on [Docker-in-Docker](https://hub.docker.com/_/docker) container socket.
 
