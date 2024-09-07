@@ -1,8 +1,13 @@
-echo "Install AWS cli"
+#!/bin/bash
 
-curl -o "/tmp/awscliv2.zip" "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
-unzip /tmp/awscliv2.zip -d /tmp/awscliv2
+echo "Updating package lists and installing AWS CLI using apt..."
 
-bash /tmp/awscliv2/aws/install
+apt update
 
-/usr/local/bin/aws --version
+apt install python3-pip -y
+
+# Install AWS CLI
+pip install awscli --break-system-packages
+
+# Check AWS CLI version
+aws --version
