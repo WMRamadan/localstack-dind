@@ -64,6 +64,11 @@ You will also see another URL for the S3 file endpoint
 
 And the output will be `Hello, from file data.`.
 
+If you would like to destroy the deployed stack you can do so by using the `--destory` flag with terraform plan then apply as follows
+
+    terraform plan -out .terraform/tf-plan.out --destroy
+    terraform apply ".terraform/tf-plan.out"
+
 Exit the container by entering `exit` and destory by
 
     docker compose down -v
