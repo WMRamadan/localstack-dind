@@ -1,5 +1,7 @@
 # LocalStack with DIND
 
+Explainer video available on [YouTube](https://www.youtube.com/watch?v=zAeXD5_AG34)
+
 The repository covers the following:
 
 1) API Gateway that serves a Lambda function.
